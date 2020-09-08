@@ -8,18 +8,29 @@ void printNumOfHash(int i) {
   }
 }
 
+void printSpaces(int i) {
+  for (int spaceBNum = 1; spaceBNum <= i; spaceBNum++) {
+      cout << " ";
+    }
+}
+
 int main(int argc, char** argv) {
   int spaceNum;
 
   for (int row = 1; row <= 5; row++) {
-    for (int spaceBNum = 0; spaceBNum <= row - 1; spaceBNum++) {
-      cout << " ";
-    }
-    printNumOfHash(row);
-    for (int spaceMNum = 1; spaceMNum <= 20 - 4 * row; spaceMNum++) {
-      cout << " ";
-    }
-    printNumOfHash(row);
+    printSpaces(row); // starting spaces
+    printNumOfHash(row); // starting hashes
+    printSpaces(20 - 4 * row); // middle spaces
+    printNumOfHash(row); // last hashes
+    cout << "\n";
+  }
+
+  // doing it in reverse for the bottom half
+  for (int row = 5; row >= 1; row--) {
+    printSpaces(row); // starting spaces
+    printNumOfHash(row); // starting hashes
+    printSpaces(20 - 4 * row); // middle spaces
+    printNumOfHash(row); // last hashes
     cout << "\n";
   }
 }
